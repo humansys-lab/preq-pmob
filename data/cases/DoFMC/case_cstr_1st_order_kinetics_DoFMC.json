@@ -1,0 +1,255 @@
+{
+    "name": "case_cstr_1st_order_kinetics_DoFMC",
+    "variables": {
+        "input_vars": [
+            "C_A",
+            "C_B",
+            "C_C",
+            "T",
+            "C_A0",
+            "T_0",
+            "F_0",
+            "V",
+            "T_c",
+            "A"
+        ],
+        "output_vars": [
+            "dC_A_dt",
+            "dC_B_dt",
+            "dC_C_dt",
+            "dT_dt"
+        ]
+    },
+    "equations": [
+        {
+            "equation": "dC_A_dt = (F_0 / V) * (C_A0 - C_A) - (r_1 + r_2)",
+            "variables": [
+                "dC_A_dt",
+                "F_0",
+                "V",
+                "C_A0",
+                "C_A",
+                "r_1",
+                "r_2"
+            ]
+        },
+        {
+            "equation": "dC_B_dt = (F_0 / V) * (- C_B) + r_1",
+            "variables": [
+                "dC_B_dt",
+                "F_0",
+                "V",
+                "C_B",
+                "r_1"
+            ]
+        },
+        {
+            "equation": "dC_C_dt = (F_0 / V) * (- C_C) + r_2",
+            "variables": [
+                "dC_C_dt",
+                "F_0",
+                "V",
+                "C_C",
+                "r_2"
+            ]
+        },
+        {
+            "equation": "r_1 = k_1 * C_A",
+            "variables": [
+                "r_1",
+                "k_1",
+                "C_A"
+            ]
+        },
+        {
+            "equation": "r_2 = k_2 * C_A",
+            "variables": [
+                "r_2",
+                "k_2",
+                "C_A"
+            ]
+        },
+        {
+            "equation": "k_1 = k_1_0 * exp(- E_1 / (R * T))",
+            "variables": [
+                "k_1",
+                "k_1_0",
+                "E_1",
+                "R",
+                "T"
+            ]
+        },
+        {
+            "equation": "k_2 = k_2_0 * exp(- E_2 / (R * T))",
+            "variables": [
+                "k_2",
+                "k_2_0",
+                "E_2",
+                "R",
+                "T"
+            ]
+        },
+        {
+            "equation": "dT_dt = (F_0 / V) * (T_0 - T) + ( - Delta_H_1 * r_1 - Delta_H_2 * r_2 ) / C_p + (U * A / (V * C_p)) * (T_c - T)",
+            "variables": [
+                "dT_dt",
+                "F_0",
+                "V",
+                "T_0",
+                "T",
+                "Delta_H_1",
+                "r_1",
+                "Delta_H_2",
+                "r_2",
+                "U",
+                "A",
+                "T_c",
+                "C_p"
+            ]
+        },
+        {
+            "equation": "k_1_0 = 0.1",
+            "variables": [
+                "k_1_0"
+            ]
+        },
+        {
+            "equation": "k_2_0 = 0.2",
+            "variables": [
+                "k_2_0"
+            ]
+        },
+        {
+            "equation": "E_1 = 10000",
+            "variables": [
+                "E_1"
+            ]
+        },
+        {
+            "equation": "E_2 = 15000",
+            "variables": [
+                "E_2"
+            ]
+        },
+        {
+            "equation": "C_p = 4.18",
+            "variables": [
+                "C_p"
+            ]
+        },
+        {
+            "equation": "C_p = 5.32",
+            "variables": [
+                "C_p"
+            ]
+        },
+        {
+            "equation": "U = 100",
+            "variables": [
+                "U"
+            ]
+        },
+        {
+            "equation": "Delta_H_1 = 50000",
+            "variables": [
+                "Delta_H_1"
+            ]
+        },
+        {
+            "equation": "Delta_H_1 = 53000",
+            "variables": [
+                "Delta_H_1"
+            ]
+        },
+        {
+            "equation": "Delta_H_2 = 60000",
+            "variables": [
+                "Delta_H_2"
+            ]
+        },
+        {
+            "equation": "R = 8.314",
+            "variables": [
+                "R"
+            ]
+        }
+    ],
+    "expected_models": [
+        [
+            "dC_A_dt = (F_0 / V) * (C_A0 - C_A) - (r_1 + r_2)",
+            "dC_B_dt = (F_0 / V) * (- C_B) + r_1",
+            "dC_C_dt = (F_0 / V) * (- C_C) + r_2",
+            "r_1 = k_1 * C_A",
+            "r_2 = k_2 * C_A",
+            "k_1 = k_1_0 * exp(- E_1 / (R * T))",
+            "k_2 = k_2_0 * exp(- E_2 / (R * T))",
+            "dT_dt = (F_0 / V) * (T_0 - T) + ( - Delta_H_1 * r_1 - Delta_H_2 * r_2 ) / C_p + (U * A / (V * C_p)) * (T_c - T)",
+            "k_1_0 = 0.1",
+            "k_2_0 = 0.2",
+            "E_1 = 10000",
+            "E_2 = 15000",
+            "C_p = 4.18",
+            "U = 100",
+            "Delta_H_1 = 50000",
+            "Delta_H_2 = 60000",
+            "R = 8.314"
+        ],
+        [
+            "dC_A_dt = (F_0 / V) * (C_A0 - C_A) - (r_1 + r_2)",
+            "dC_B_dt = (F_0 / V) * (- C_B) + r_1",
+            "dC_C_dt = (F_0 / V) * (- C_C) + r_2",
+            "r_1 = k_1 * C_A",
+            "r_2 = k_2 * C_A",
+            "k_1 = k_1_0 * exp(- E_1 / (R * T))",
+            "k_2 = k_2_0 * exp(- E_2 / (R * T))",
+            "dT_dt = (F_0 / V) * (T_0 - T) + ( - Delta_H_1 * r_1 - Delta_H_2 * r_2 ) / C_p + (U * A / (V * C_p)) * (T_c - T)",
+            "k_1_0 = 0.1",
+            "k_2_0 = 0.2",
+            "E_1 = 10000",
+            "E_2 = 15000",
+            "C_p = 5.32",
+            "U = 100",
+            "Delta_H_1 = 50000",
+            "Delta_H_2 = 60000",
+            "R = 8.314"
+        ],
+        [
+            "dC_A_dt = (F_0 / V) * (C_A0 - C_A) - (r_1 + r_2)",
+            "dC_B_dt = (F_0 / V) * (- C_B) + r_1",
+            "dC_C_dt = (F_0 / V) * (- C_C) + r_2",
+            "r_1 = k_1 * C_A",
+            "r_2 = k_2 * C_A",
+            "k_1 = k_1_0 * exp(- E_1 / (R * T))",
+            "k_2 = k_2_0 * exp(- E_2 / (R * T))",
+            "dT_dt = (F_0 / V) * (T_0 - T) + ( - Delta_H_1 * r_1 - Delta_H_2 * r_2 ) / C_p + (U * A / (V * C_p)) * (T_c - T)",
+            "k_1_0 = 0.1",
+            "k_2_0 = 0.2",
+            "E_1 = 10000",
+            "E_2 = 15000",
+            "C_p = 4.18",
+            "U = 100",
+            "Delta_H_1 = 53000",
+            "Delta_H_2 = 60000",
+            "R = 8.314"
+        ],
+        [
+            "dC_A_dt = (F_0 / V) * (C_A0 - C_A) - (r_1 + r_2)",
+            "dC_B_dt = (F_0 / V) * (- C_B) + r_1",
+            "dC_C_dt = (F_0 / V) * (- C_C) + r_2",
+            "r_1 = k_1 * C_A",
+            "r_2 = k_2 * C_A",
+            "k_1 = k_1_0 * exp(- E_1 / (R * T))",
+            "k_2 = k_2_0 * exp(- E_2 / (R * T))",
+            "dT_dt = (F_0 / V) * (T_0 - T) + ( - Delta_H_1 * r_1 - Delta_H_2 * r_2 ) / C_p + (U * A / (V * C_p)) * (T_c - T)",
+            "k_1_0 = 0.1",
+            "k_2_0 = 0.2",
+            "E_1 = 10000",
+            "E_2 = 15000",
+            "C_p = 5.32",
+            "U = 100",
+            "Delta_H_1 = 53000",
+            "Delta_H_2 = 60000",
+            "R = 8.314"
+        ]
+    ]
+}

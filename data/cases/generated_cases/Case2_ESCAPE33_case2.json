@@ -1,0 +1,177 @@
+{
+    "name": "Case2_ESCAPE33_case2",
+    "variables": {
+        "input_variables": [
+            "x_1"
+        ],
+        "output_variables": [
+            "y"
+        ]
+    },
+    "equations": [
+        {
+            "equation": "y = x_1 + x_2",
+            "variables": [
+                "x_1",
+                "x_2",
+                "y"
+            ]
+        },
+        {
+            "equation": "x_2 = 0.1",
+            "variables": [
+                "x_2"
+            ]
+        },
+        {
+            "equation": "x_2 = 1",
+            "variables": [
+                "x_2"
+            ]
+        },
+        {
+            "equation": "a_0 = 0",
+            "variables": [
+                "a_0"
+            ]
+        },
+        {
+            "equation": "a_1 = 1",
+            "variables": [
+                "a_1"
+            ]
+        },
+        {
+            "equation": "a_2 = 2",
+            "variables": [
+                "a_2"
+            ]
+        },
+        {
+            "equation": "a_3 = 3",
+            "variables": [
+                "a_3"
+            ]
+        },
+        {
+            "equation": "a_4 = 4",
+            "variables": [
+                "a_4"
+            ]
+        },
+        {
+            "equation": "a_5 = 5",
+            "variables": [
+                "a_5"
+            ]
+        },
+        {
+            "equation": "a_6 = 6",
+            "variables": [
+                "a_6"
+            ]
+        },
+        {
+            "equation": "a_7 = 7",
+            "variables": [
+                "a_7"
+            ]
+        },
+        {
+            "equation": "a_8 = 8",
+            "variables": [
+                "a_8"
+            ]
+        },
+        {
+            "equation": "a_9 = 9",
+            "variables": [
+                "a_9"
+            ]
+        },
+        {
+            "equation": "a_10 = 10",
+            "variables": [
+                "a_10"
+            ]
+        },
+        {
+            "equation": "a_11 = 11",
+            "variables": [
+                "a_11"
+            ]
+        },
+        {
+            "equation": "a_12 = 12",
+            "variables": [
+                "a_12"
+            ]
+        },
+        {
+            "equation": "a_13 = 13",
+            "variables": [
+                "a_13"
+            ]
+        },
+        {
+            "equation": "a_14 = 14",
+            "variables": [
+                "a_14"
+            ]
+        },
+        {
+            "equation": "a_15 = 15",
+            "variables": [
+                "a_15"
+            ]
+        },
+        {
+            "equation": "a_16 = 16",
+            "variables": [
+                "a_16"
+            ]
+        },
+        {
+            "equation": "a_17 = 17",
+            "variables": [
+                "a_17"
+            ]
+        },
+        {
+            "equation": "a_18 = 18",
+            "variables": [
+                "a_18"
+            ]
+        },
+        {
+            "equation": "a_19 = 19",
+            "variables": [
+                "a_19"
+            ]
+        }
+    ],
+    "correct_models": [
+        {
+            "equations": [
+                "y = x_1 + x_2",
+                "x_2 = 0.1"
+            ],
+            "variables": [
+                "x_1",
+                "y",
+                "x_2"
+            ]
+        },
+        {
+            "equations": [
+                "y = x_1 + x_2",
+                "x_2 = 1"
+            ],
+            "variables": [
+                "x_1",
+                "y",
+                "x_2"
+            ]
+        }
+    ]
+}

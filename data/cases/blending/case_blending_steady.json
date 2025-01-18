@@ -1,0 +1,69 @@
+{
+    "name": "case_blending_steady",
+    "variables": {
+        "input_vars": [
+            "w_1",
+            "w_2",
+            "x_1",
+            "x_2"
+        ],
+        "output_vars": [
+            "x"
+        ]
+    },
+    "equations": [
+        {
+            "equation": "w_1 * x_1 + w_2 * x_2 = w * x",
+            "variables": [
+                "w_1",
+                "x_1",
+                "w_2",
+                "x_2",
+                "w",
+                "x"
+            ]
+        },
+        {
+            "equation": "w_1 + w_2 = w",
+            "variables": [
+                "w_1",
+                "w_2",
+                "w"
+            ]
+        },
+        {
+            "equation": "dV_dt = 1 / rho * (w_1 + w_2 - w)",
+            "variables": [
+                "V",
+                "rho",
+                "w_1",
+                "w_2",
+                "w"
+            ]
+        },
+        {
+            "equation": "dx_dt = w_1 / (V * rho) * (x_1 - x) + w_2 / (V * rho) * (x_2 - x)",
+            "variables": [
+                "w_1",
+                "V",
+                "rho",
+                "x_1",
+                "x",
+                "w_2",
+                "x_2"
+            ]
+        },
+        {
+            "equation": "rho = Constant",
+            "variables": [
+                "rho"
+            ]
+        }
+    ],
+    "expected_models": [
+        [
+            "w_1 * x_1 + w_2 * x_2 = w * x",
+            "w_1 + w_2 = w"
+        ]
+    ]
+}

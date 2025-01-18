@@ -1,0 +1,182 @@
+{
+    "name": "Case6_cstr_two_species",
+    "variables": {
+        "input_variables": [
+            "C_A0",
+            "F_0",
+            "V",
+            "T"
+        ],
+        "output_variables": [
+            "C_A",
+            "C_B"
+        ]
+    },
+    "equations": [
+        {
+            "equation": "dC_A_dt = (F_0 / V) * (C_A0 - C_A) - r_1",
+            "variables": [
+                "F_0",
+                "V",
+                "C_A0",
+                "C_A",
+                "r_1"
+            ]
+        },
+        {
+            "equation": "dC_B_dt = (F_0 / V) * (- C_B) + r_1",
+            "variables": [
+                "F_0",
+                "V",
+                "C_B",
+                "r_1"
+            ]
+        },
+        {
+            "equation": "r_1 = k_1 * C_A",
+            "variables": [
+                "k_1",
+                "C_A",
+                "r_1"
+            ]
+        },
+        {
+            "equation": "k_1 = k_1_0 * exp(- E_1 / (R * T))",
+            "variables": [
+                "k_1_0",
+                "E_1",
+                "R",
+                "T",
+                "k_1"
+            ]
+        },
+        {
+            "equation": "k_1_0 = 0.1",
+            "variables": [
+                "k_1_0"
+            ]
+        },
+        {
+            "equation": "E_1 = 1.0 * 10 ^ 4",
+            "variables": [
+                "E_1"
+            ]
+        },
+        {
+            "equation": "k_1_0 = 0.15",
+            "variables": [
+                "k_1_0"
+            ]
+        },
+        {
+            "equation": "E_1 = 1.3 * 10 ^ 4",
+            "variables": [
+                "E_1"
+            ]
+        },
+        {
+            "equation": "R = 8.314",
+            "variables": [
+                "R"
+            ]
+        }
+    ],
+    "correct_models": [
+        {
+            "equations": [
+                "dC_A_dt = (F_0 / V) * (C_A0 - C_A) - r_1",
+                "R = 8.314",
+                "k_1_0 = 0.1",
+                "r_1 = k_1 * C_A",
+                "k_1 = k_1_0 * exp(- E_1 / (R * T))",
+                "dC_B_dt = (F_0 / V) * (- C_B) + r_1",
+                "E_1 = 1.0 * 10 ^ 4"
+            ],
+            "variables": [
+                "T",
+                "C_A0",
+                "R",
+                "V",
+                "k_1_0",
+                "C_A",
+                "r_1",
+                "k_1",
+                "F_0",
+                "C_B",
+                "E_1"
+            ]
+        },
+        {
+            "equations": [
+                "dC_A_dt = (F_0 / V) * (C_A0 - C_A) - r_1",
+                "R = 8.314",
+                "r_1 = k_1 * C_A",
+                "k_1 = k_1_0 * exp(- E_1 / (R * T))",
+                "dC_B_dt = (F_0 / V) * (- C_B) + r_1",
+                "E_1 = 1.0 * 10 ^ 4",
+                "k_1_0 = 0.15"
+            ],
+            "variables": [
+                "T",
+                "C_A0",
+                "R",
+                "V",
+                "k_1_0",
+                "C_A",
+                "r_1",
+                "k_1",
+                "F_0",
+                "C_B",
+                "E_1"
+            ]
+        },
+        {
+            "equations": [
+                "dC_A_dt = (F_0 / V) * (C_A0 - C_A) - r_1",
+                "R = 8.314",
+                "E_1 = 1.3 * 10 ^ 4",
+                "k_1_0 = 0.1",
+                "r_1 = k_1 * C_A",
+                "k_1 = k_1_0 * exp(- E_1 / (R * T))",
+                "dC_B_dt = (F_0 / V) * (- C_B) + r_1"
+            ],
+            "variables": [
+                "T",
+                "C_A0",
+                "R",
+                "V",
+                "k_1_0",
+                "C_A",
+                "r_1",
+                "k_1",
+                "F_0",
+                "C_B",
+                "E_1"
+            ]
+        },
+        {
+            "equations": [
+                "dC_A_dt = (F_0 / V) * (C_A0 - C_A) - r_1",
+                "R = 8.314",
+                "E_1 = 1.3 * 10 ^ 4",
+                "r_1 = k_1 * C_A",
+                "k_1 = k_1_0 * exp(- E_1 / (R * T))",
+                "dC_B_dt = (F_0 / V) * (- C_B) + r_1",
+                "k_1_0 = 0.15"
+            ],
+            "variables": [
+                "T",
+                "C_A0",
+                "R",
+                "V",
+                "k_1_0",
+                "C_A",
+                "r_1",
+                "k_1",
+                "F_0",
+                "C_B",
+                "E_1"
+            ]
+        }
+    ]
+}

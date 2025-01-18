@@ -1,0 +1,132 @@
+{
+    "name": "Case3_ESCAPE33_case3",
+    "variables": {
+        "input_variables": [
+            "C_A0",
+            "V",
+            "v_0",
+            "T"
+        ],
+        "output_variables": [
+            "C_A"
+        ]
+    },
+    "equations": [
+        {
+            "equation": "V * dC_A_dt = v_0 * C_A0 - v_0 * C_A + r_A * V",
+            "variables": [
+                "V",
+                "C_A",
+                "v_0",
+                "C_A0",
+                "r_A"
+            ]
+        },
+        {
+            "equation": "- r_A = k",
+            "variables": [
+                "k",
+                "r_A"
+            ]
+        },
+        {
+            "equation": "- r_A = k * C_A",
+            "variables": [
+                "k",
+                "C_A",
+                "r_A"
+            ]
+        },
+        {
+            "equation": "- r_A = k * C_A ^ 2",
+            "variables": [
+                "k",
+                "C_A",
+                "r_A"
+            ]
+        },
+        {
+            "equation": "k = k_0 * exp(- a / T)",
+            "variables": [
+                "k",
+                "k_0",
+                "a",
+                "T"
+            ]
+        },
+        {
+            "equation": "k_0 = 0.1",
+            "variables": [
+                "k_0"
+            ]
+        },
+        {
+            "equation": "a = 10",
+            "variables": [
+                "a"
+            ]
+        }
+    ],
+    "correct_models": [
+        {
+            "equations": [
+                "V * dC_A_dt = v_0 * C_A0 - v_0 * C_A + r_A * V",
+                "k_0 = 0.1",
+                "a = 10",
+                "k = k_0 * exp(- a / T)",
+                "- r_A = k"
+            ],
+            "variables": [
+                "T",
+                "v_0",
+                "C_A0",
+                "a",
+                "V",
+                "C_A",
+                "k_0",
+                "k",
+                "r_A"
+            ]
+        },
+        {
+            "equations": [
+                "V * dC_A_dt = v_0 * C_A0 - v_0 * C_A + r_A * V",
+                "k_0 = 0.1",
+                "a = 10",
+                "- r_A = k * C_A",
+                "k = k_0 * exp(- a / T)"
+            ],
+            "variables": [
+                "T",
+                "v_0",
+                "C_A0",
+                "a",
+                "V",
+                "C_A",
+                "k_0",
+                "k",
+                "r_A"
+            ]
+        },
+        {
+            "equations": [
+                "V * dC_A_dt = v_0 * C_A0 - v_0 * C_A + r_A * V",
+                "k_0 = 0.1",
+                "a = 10",
+                "- r_A = k * C_A ^ 2",
+                "k = k_0 * exp(- a / T)"
+            ],
+            "variables": [
+                "T",
+                "v_0",
+                "C_A0",
+                "a",
+                "V",
+                "C_A",
+                "k_0",
+                "k",
+                "r_A"
+            ]
+        }
+    ]
+}

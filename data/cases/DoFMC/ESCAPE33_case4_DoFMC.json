@@ -1,0 +1,135 @@
+{
+    "name": "ESCAPE33_case4_DoFMC",
+    "variables": {
+        "input_vars": [
+            "CA",
+            "CA0",
+            "T",
+            "V",
+            "v0",
+            "U",
+            "A",
+            "rho",
+            "w",
+            "C",
+            "Ti",
+            "Tc",
+            "Hr"
+        ],
+        "output_vars": [
+            "dCdt",
+            "dTdt"
+        ]
+    },
+    "equations": [
+        {
+            "equation": "V * dCdt = v0 * CA0 - v0 * CA + rA * V",
+            "variables": [
+                "dCdt",
+                "V",
+                "v0",
+                "CA0",
+                "CA",
+                "rA"
+            ]
+        },
+        {
+            "equation": "- rA = k",
+            "variables": [
+                "rA",
+                "k"
+            ]
+        },
+        {
+            "equation": "- rA = k * CA",
+            "variables": [
+                "rA",
+                "k",
+                "CA"
+            ]
+        },
+        {
+            "equation": "- rA = k * CA ^ 2",
+            "variables": [
+                "rA",
+                "k",
+                "CA"
+            ]
+        },
+        {
+            "equation": "k = k0 * exp( a / T )",
+            "variables": [
+                "k",
+                "k0",
+                "a",
+                "T"
+            ]
+        },
+        {
+            "equation": "k0 = 0.1",
+            "variables": [
+                "k0"
+            ]
+        },
+        {
+            "equation": "a = 10",
+            "variables": [
+                "a"
+            ]
+        },
+        {
+            "equation": "Q = U * A * Tc - U * A * T",
+            "variables": [
+                "Q",
+                "U",
+                "A",
+                "Tc",
+                "T"
+            ]
+        },
+        {
+            "equation": "V * rho * dTdt = w * C * Ti - w * C * T + Hr * V * rA + Q",
+            "variables": [
+                "V",
+                "rho",
+                "dTdt",
+                "w",
+                "C",
+                "Ti",
+                "T",
+                "Hr",
+                "rA",
+                "Q"
+            ]
+        }
+    ],
+    "expected_models": [
+        [
+            "V * dCdt = v0 * CA0 - v0 * CA + rA * V",
+            "- rA = k",
+            "k = k0 * exp( a / T )",
+            "k0 = 0.1",
+            "a = 10",
+            "Q = U * A * Tc - U * A * T",
+            "V * rho * dTdt = w * C * Ti - w * C * T + Hr * V * rA + Q"
+        ],
+        [
+            "V * dCdt = v0 * CA0 - v0 * CA + rA * V",
+            "- rA = k * CA",
+            "k = k0 * exp( a / T )",
+            "k0 = 0.1",
+            "a = 10",
+            "Q = U * A * Tc - U * A * T",
+            "V * rho * dTdt = w * C * Ti - w * C * T + Hr * V * rA + Q"
+        ],
+        [
+            "V * dCdt = v0 * CA0 - v0 * CA + rA * V",
+            "- rA = k * CA ^ 2",
+            "k = k0 * exp( a / T )",
+            "k0 = 0.1",
+            "a = 10",
+            "Q = U * A * Tc - U * A * T",
+            "V * rho * dTdt = w * C * Ti - w * C * T + Hr * V * rA + Q"
+        ]
+    ]
+}

@@ -1,0 +1,57 @@
+{
+    "name": "Case1_ESCAPE33_case1",
+    "variables": {
+        "input_variables": [
+            "x_1"
+        ],
+        "output_variables": [
+            "y"
+        ]
+    },
+    "equations": [
+        {
+            "equation": "y = x_1 + x_2",
+            "variables": [
+                "x_1",
+                "x_2",
+                "y"
+            ]
+        },
+        {
+            "equation": "x_2 = 0.1",
+            "variables": [
+                "x_2"
+            ]
+        },
+        {
+            "equation": "x_2 = 1",
+            "variables": [
+                "x_2"
+            ]
+        }
+    ],
+    "correct_models": [
+        {
+            "equations": [
+                "y = x_1 + x_2",
+                "x_2 = 0.1"
+            ],
+            "variables": [
+                "x_1",
+                "y",
+                "x_2"
+            ]
+        },
+        {
+            "equations": [
+                "y = x_1 + x_2",
+                "x_2 = 1"
+            ],
+            "variables": [
+                "x_1",
+                "y",
+                "x_2"
+            ]
+        }
+    ]
+}

@@ -1,0 +1,55 @@
+{
+    "name": "Case5_cstr_simple",
+    "variables": {
+        "input_variables": [
+            "C_0",
+            "F_0",
+            "V"
+        ],
+        "output_variables": [
+            "C"
+        ]
+    },
+    "equations": [
+        {
+            "equation": "dC_dt = (F_0 / V) * (C_0 - C) - r",
+            "variables": [
+                "F_0",
+                "V",
+                "C_0",
+                "C",
+                "r"
+            ]
+        },
+        {
+            "equation": "r = k_0",
+            "variables": [
+                "k_0",
+                "r"
+            ]
+        },
+        {
+            "equation": "k_0 = 0.1",
+            "variables": [
+                "k_0"
+            ]
+        }
+    ],
+    "correct_models": [
+        {
+            "equations": [
+                "k_0 = 0.1",
+                "dC_dt = (F_0 / V) * (C_0 - C) - r",
+                "r = k_0"
+            ],
+            "variables": [
+                "C_0",
+                "C",
+                "V",
+                "k_0",
+                "F_0",
+                "r"
+            ]
+        }
+    ]
+}

@@ -1,0 +1,197 @@
+{
+    "name": "Case4_ESCAPE33_case4",
+    "variables": {
+        "input_variables": [
+            "C_A0",
+            "V",
+            "v_0",
+            "U",
+            "A",
+            "rho",
+            "w",
+            "C",
+            "T_i",
+            "T_c",
+            "H_r"
+        ],
+        "output_variables": [
+            "C_A",
+            "T"
+        ]
+    },
+    "equations": [
+        {
+            "equation": "V * dC_A_dt = v_0 * C_A0 - v_0 * C_A + r_A * V",
+            "variables": [
+                "V",
+                "C_A",
+                "v_0",
+                "C_A0",
+                "r_A"
+            ]
+        },
+        {
+            "equation": "- r_A = k",
+            "variables": [
+                "k",
+                "r_A"
+            ]
+        },
+        {
+            "equation": "- r_A = k * C_A",
+            "variables": [
+                "k",
+                "C_A",
+                "r_A"
+            ]
+        },
+        {
+            "equation": "- r_A = k * C_A ^ 2",
+            "variables": [
+                "k",
+                "C_A",
+                "r_A"
+            ]
+        },
+        {
+            "equation": "k = k_0 * exp(- a / T)",
+            "variables": [
+                "k",
+                "k_0",
+                "a",
+                "T"
+            ]
+        },
+        {
+            "equation": "k_0 = 0.1",
+            "variables": [
+                "k_0"
+            ]
+        },
+        {
+            "equation": "a = 10",
+            "variables": [
+                "a"
+            ]
+        },
+        {
+            "equation": "Q = U * A * T_c - U * A * T",
+            "variables": [
+                "Q",
+                "U",
+                "A",
+                "T_c",
+                "T"
+            ]
+        },
+        {
+            "equation": "V * rho * dT_dt = w * C * T_i - w * C * T + H_r * V * r_A + Q",
+            "variables": [
+                "V",
+                "rho",
+                "T",
+                "w",
+                "C",
+                "T_i",
+                "H_r",
+                "r_A",
+                "Q"
+            ]
+        }
+    ],
+    "correct_models": [
+        {
+            "equations": [
+                "V * dC_A_dt = v_0 * C_A0 - v_0 * C_A + r_A * V",
+                "k_0 = 0.1",
+                "V * rho * dT_dt = w * C * T_i - w * C * T + H_r * V * r_A + Q",
+                "a = 10",
+                "Q = U * A * T_c - U * A * T",
+                "k = k_0 * exp(- a / T)",
+                "- r_A = k"
+            ],
+            "variables": [
+                "T",
+                "v_0",
+                "Q",
+                "T_c",
+                "w",
+                "C_A0",
+                "a",
+                "C",
+                "V",
+                "C_A",
+                "k_0",
+                "k",
+                "r_A",
+                "T_i",
+                "H_r",
+                "A",
+                "rho",
+                "U"
+            ]
+        },
+        {
+            "equations": [
+                "V * dC_A_dt = v_0 * C_A0 - v_0 * C_A + r_A * V",
+                "k_0 = 0.1",
+                "V * rho * dT_dt = w * C * T_i - w * C * T + H_r * V * r_A + Q",
+                "a = 10",
+                "- r_A = k * C_A",
+                "Q = U * A * T_c - U * A * T",
+                "k = k_0 * exp(- a / T)"
+            ],
+            "variables": [
+                "T",
+                "v_0",
+                "Q",
+                "T_c",
+                "w",
+                "C_A0",
+                "a",
+                "C",
+                "V",
+                "C_A",
+                "k_0",
+                "k",
+                "r_A",
+                "T_i",
+                "H_r",
+                "A",
+                "rho",
+                "U"
+            ]
+        },
+        {
+            "equations": [
+                "V * dC_A_dt = v_0 * C_A0 - v_0 * C_A + r_A * V",
+                "k_0 = 0.1",
+                "V * rho * dT_dt = w * C * T_i - w * C * T + H_r * V * r_A + Q",
+                "a = 10",
+                "- r_A = k * C_A ^ 2",
+                "Q = U * A * T_c - U * A * T",
+                "k = k_0 * exp(- a / T)"
+            ],
+            "variables": [
+                "T",
+                "v_0",
+                "Q",
+                "T_c",
+                "w",
+                "C_A0",
+                "a",
+                "C",
+                "V",
+                "C_A",
+                "k_0",
+                "k",
+                "r_A",
+                "T_i",
+                "H_r",
+                "A",
+                "rho",
+                "U"
+            ]
+        }
+    ]
+}
