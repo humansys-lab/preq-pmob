@@ -40,6 +40,24 @@ class ModelBuilder:
             return self.build_models_gradual()
         elif self.method == "refined_gradual":
             return self.build_models_refined_gradual()
+        elif self.method == "original_exhaustive":
+            return self.build_models_original_exhaustive()
+        elif self.method == "original_gradual":
+            return self.build_models_original_gradual()
+        elif self.method == "original_exhaustive_filtered":
+            output_models = self.build_models_original_exhaustive()
+            return [
+                model
+                for model in output_models
+                if self.filter_candidate_model(model)
+            ]
+        elif self.method == "original_gradual_filtered":
+            output_models = self.build_models_original_gradual()
+            return [
+                model
+                for model in output_models
+                if self.filter_candidate_model(model)
+            ]
         else:
             raise ValueError("Invalid method.")
 
@@ -334,3 +352,91 @@ class ModelBuilder:
             }
             model_queue.extend(new_models)
         return output_models
+
+    def filter_candidate_model(self, candidate_model: EquationGroup) -> bool:
+        # remove equations with only one variable
+        equations = [
+            eq for eq in candidate_model.equations if len(eq.variables) > 1
+        ]
+        for i, eq in enumerate(equations):
+            vars_i_eq = eq.variables
+            for j in range(i + 1, len(equations)):
+                vars_j_eq = equations[j].variables
+                if vars_i_eq <= vars_j_eq or vars_j_eq <= vars_i_eq:
+                    return False
+        return True
+
+    def build_models_original_exhaustive(self) -> List[EquationGroup]:
+        output_models: List[EquationGroup] = []
+
+        for n in range(1, len(self.equations) + 1):
+            for eq_combination in combinations(self.equations, n):
+                eq_group = EquationGroup(list(eq_combination))
+                if eq_group.has_correct_dof(
+                    self.input_vars
+                ) and eq_group.has_required_variables(self.required_vars):
+                    output_models.append(eq_group)
+        return output_models
+
+    def build_models_original_gradual(self) -> List[EquationGroup]:
+        output_models: List[EquationGroup] = []
+
+        candidate_models, pending_models = (
+            self.build_candidate_models_original_by_product(
+                self.required_vars, self.var_to_eq_map
+            )
+        )
+        output_models.extend(candidate_models)
+        for pending_model in pending_models:
+            redundant_var_to_eq_map = {}
+            for var in pending_model.variables:
+                redundant_var_to_eq_map[var] = self.var_to_eq_map[var]
+            if redundant_var_to_eq_map:
+                new_candidate_models, _ = (
+                    self.build_candidate_models_original_by_product(
+                        set(redundant_var_to_eq_map.keys()),
+                        redundant_var_to_eq_map,
+                        pending_model,
+                    )
+                )
+                output_models.extend(new_candidate_models)
+
+        # remove duplicate models
+        output_models = [
+            EquationGroup(list(eq_group))
+            for eq_group in {
+                frozenset(model.equations) for model in output_models
+            }
+        ]
+
+        return output_models
+
+    def build_candidate_models_original_by_product(
+        self,
+        variables: Set[str],
+        var_to_eq_map: Dict[str, Set[Equation]],
+        prev_pending_model: EquationGroup = EquationGroup([]),
+    ) -> tuple:
+        candidate_models: Set[EquationGroup] = set()
+        pending_models: Set[EquationGroup] = set()
+
+        pending_eq_groups = set(
+            tuple(set(eqs))
+            for eqs in product(*[var_to_eq_map[v] for v in variables])
+        )
+
+        for pending_eq_group in pending_eq_groups:
+            eq_group = EquationGroup(
+                list(
+                    set(prev_pending_model.equations).union(
+                        set(pending_eq_group)
+                    )
+                )
+            )
+
+            if eq_group.has_correct_dof(self.input_vars):
+                candidate_models.add(eq_group)
+            else:
+                pending_models.add(eq_group)
+
+        return candidate_models, pending_models
