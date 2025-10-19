@@ -31,7 +31,7 @@
 
 Ensure you have the following installed:
 - Python 3.10.15 or higher
-- Required Python libraries (listed in `pyproject.toml`)
+- [uv](https://github.com/astral-sh/uv) for dependency management
 
 ### Installation
 
@@ -43,7 +43,11 @@ Ensure you have the following installed:
 
 2. Install dependencies:
     ```bash
-    poetry install
+    uv sync
+    ```
+    For development tools (formatters, linters, etc.), run:
+    ```bash
+    uv sync --group dev
     ```
 
 ---
@@ -53,7 +57,7 @@ Ensure you have the following installed:
 ## Example Workflow
 
 1. Prepare your input equations, defining input and output variables. The case studies in the paper can be generated using `notebooks/generate_case_study_datasets.ipynb`.
-2. Run `experiments/run_experiments.py` to validate the method on the case studies. If you want to run more than one time, you can use the script `experiments/run_experiments.sh`.
+2. Run `uv run python experiments/run_experiments.py` to validate the method on the case studies. If you want to run more than one time, you can use the script `experiments/run_experiments.sh`.
 3. Analyze and validate the constructed models by running `experiments/analyze_results.py`.
 
 ## General Usage
