@@ -19,11 +19,7 @@ class ModelBuilder:
         self.required_vars: Set[str] = self.input_vars.union(self.output_vars)
         self.method: str = method
 
-        if method in [
-            "exhaustive",
-            "gradual",
-            "refined_gradual",
-        ]:
+        if "gradual" in method:
             self.var_to_eq_map: Dict[str, Set[Equation]] = (
                 self._create_var_to_eq_map()
             )
@@ -109,6 +105,14 @@ class ModelBuilder:
                 )
             )
             output_models.extend(new_candidate_models)
+
+        # remove duplicate models
+        output_models = [
+            EquationGroup(list(eq_group))
+            for eq_group in {
+                frozenset(model.equations) for model in output_models
+            }
+        ]
 
         return output_models
 
